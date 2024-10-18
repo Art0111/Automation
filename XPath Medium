@@ -17,4 +17,29 @@ if (button.snapshotLength > 0) {
     console.log("No buttons found.");
 }
 
-// 4. 
+// 4. Validate the presence and visibility of the site search icon on the webpage, and ensure the image associated with the search icon has the appropriate alt text and a source (src) path.
+
+let searchIcon = document.evaluate("//li[@role='search']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue; 
+console.log(getComputedStyle(searchIcon).visibility);
+
+// 5. Log into your profile at https://www.greencity.cx.ua/#/profile. At the bottom of the page, there are checkboxes. Find them, check their state (checked or not), and display a message about the number of checked and unchecked checkboxes.
+
+let checkBoxesSnapshot = document.evaluate("//input[@type='checkbox']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+let checkBoxesArray = [];
+for (let i = 0; i < checkBoxesSnapshot.snapshotLength; i++) {
+    checkBoxesArray.push(checkBoxesSnapshot.snapshotItem(i));
+}
+let numberOfChecked = 0;
+let numberOfUnchecked = 0;
+
+
+
+for (let i = 0; i < checkBoxesArray.length; i++) {
+  if(checkBoxesArray[i].state === 'checked' ) {
+   numberOfChecked++;
+  } else {
+      numberOfUnchecked++;
+  }
+}
+console.log(numberOfChecked);
+console.log(numberOfUnchecked);
