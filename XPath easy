@@ -8,7 +8,7 @@ $x("//img[@alt]")
 
 // 3.Find the button with the text "Start forming a habit!".
 
-$x("//button[text()='Start forming a habit!']")
+$x("//button[contains(text(), 'Start forming a habit!')]")
 
 // 4.Check for the presence of a search icon on the webpage.
 
