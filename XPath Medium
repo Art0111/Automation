@@ -1,0 +1,20 @@
+// 1.To find the first h1 element on the main page.
+
+let xpathResult = document.evaluate("//h1", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+console.log(xpathResult);
+
+// 2. Find all images that have the 'alt' attribute. Output the message in the console "Found (number) images with the alt attribute."
+
+let allImages = document.evaluate("//img[@alt]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+console.log("Found "+ allImages.snapshotLength + " images with the alt attribute.");
+
+// 3. Find the button element with the text "Start forming a habit!". If an element with such text is not found, display a corresponding message. Output the message with numbers of buttons in the console.
+
+let button = document.evaluate("//button[contains(text(), 'Start forming a habit!')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+if (button.snapshotLength > 0) {
+    console.log("Found "+ button.snapshotLength + " buttons.");
+} else {
+    console.log("No buttons found.");
+}
+
+// 4. 
